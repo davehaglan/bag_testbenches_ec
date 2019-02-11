@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 
-from typing import Dict, Any, Union, List, Tuple
+from typing import Dict, Union, List, Tuple, Any
 
 import os
 import pkg_resources
 
-from bag.design import Module
-
-
-yaml_file = pkg_resources.resource_filename(__name__, os.path.join('netlist_info', 'mos_cascode.yaml'))
+from bag.util.cache import Param
+from bag.design.module import Module
+from bag.design.database import ModuleDB
 
 
 # noinspection PyPep8Naming
 class bag_testbenches_ec__mos_cascode(Module):
-    """A cascode transistor generator.
+    """Module for library bag_testbenches_ec cell mos_cascode.
 
-    This class is used primarily for transistor characterization purposes.
+    Fill in high level description here.
     """
 
-    def __init__(self, bag_config, parent=None, prj=None, **kwargs):
-        Module.__init__(self, bag_config, yaml_file, parent=parent, prj=prj, **kwargs)
+    yaml_file = pkg_resources.resource_filename(__name__,
+                                                os.path.join('netlist_info',
+                                                             'mos_cascode.yaml'))
+
+    def __init__(self, database: ModuleDB, params: Param, **kwargs: Any) -> None:
+        Module.__init__(self, self.yaml_file, database, params, **kwargs)
 
     @classmethod
-    def get_params_info(cls):
-        # type: () -> Dict[str, str]
+    def get_params_info(cls) -> Dict[str, str]:
         return dict(
             mos_type="Transistor type.  Either 'pch' or 'nch'.",
             lch='Transistor length in meters.',
@@ -39,8 +41,7 @@ class bag_testbenches_ec__mos_cascode(Module):
         )
 
     @classmethod
-    def get_default_param_values(cls):
-        # type: () -> Dict[str, Any]
+    def get_default_param_values(cls) -> Dict[str, Any]:
         return dict(
             intentb='standard',
             intentc='standard',
@@ -49,19 +50,9 @@ class bag_testbenches_ec__mos_cascode(Module):
             dum_info=None,
         )
 
-    def design(self,  # type: Module
-               mos_type,  # type: str
-               lch,  # type: float
-               intentb,  # type: str
-               intentc,  # type: str
-               wb,  # type: Union[float, int]
-               wc,  # type: Union[float, int]
-               fgb,  # type: int
-               fgc,  # type: int
-               stackb,  # type: int
-               stackc,  # type: int
-               dum_info,  # type: List[Tuple[Any]]
-               ):
+    def design(self, mos_type: str, lch: float, intentb: str, intentc: str, wb: Union[float, int],
+               wc: Union[float, int], fgb: int, fgc: int, stackb: int, stackc: int,
+               dum_info: List[Tuple[Any]]) -> None:
         """Design this cascode transistor.
         """
         if fgb == 1 or fgc == 1:
@@ -71,28 +62,10 @@ class bag_testbenches_ec__mos_cascode(Module):
             self.replace_instance_master('XB', 'BAG_prim', 'pmos4_standard')
             self.replace_instance_master('XC', 'BAG_prim', 'pmos4_standard')
 
-        for inst_name, w, stack, fg, intent in (('XB', wb, stackb, fgb, intentb),
-                                                ('XC', wc, stackc, fgc, intentc)):
-            if stack > 1:
-                # array instances
-                name_list = []
-                term_list = []
-                # add stack transistors
-                for idx in range(stack):
-                    name_list.append('%s%d<%d:0>' % (inst_name, idx, fg - 1))
-                    cur_term = {}
-                    if idx != stack - 1:
-                        cur_term['S'] = 'mid%d<%d:0>' % (idx, fg - 1)
-                    if idx != 0:
-                        cur_term['D'] = 'mid%d<%d:0>' % (idx - 1, fg - 1)
-                    term_list.append(cur_term)
-
-                # design transistors
-                self.array_instance(inst_name, name_list, term_list=term_list)
-                for idx in range(stack):
-                    self.instances[inst_name][idx].design(w=w, l=lch, nf=1, intent=intent)
-            else:
-                self.instances[inst_name].design(w=w, l=lch, nf=fg, intent=intent)
+        self.design_transistor('XB', wb, lch, fgb, intentb, 'midb', d='mid', g='g', s='s', b='b',
+                               stack=stackb)
+        self.design_transistor('XC', wc, lch, fgc, intentc, 'midc', d='d', g='c', s='mid', b='b',
+                               stack=stackc)
 
         # handle dummy transistors
         self.design_dummy_transistors(dum_info, 'XD', 'b', 'b')

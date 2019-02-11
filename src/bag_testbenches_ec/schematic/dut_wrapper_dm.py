@@ -1,54 +1,32 @@
 # -*- coding: utf-8 -*-
-########################################################################################################################
-#
-# Copyright (c) 2014, Regents of the University of California
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-# following conditions are met:
-#
-# 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-#   disclaimer.
-# 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
-#    following disclaimer in the documentation and/or other materials provided with the distribution.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-# INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-########################################################################################################################
 
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
-# noinspection PyUnresolvedReferences,PyCompatibility
-from builtins import *
+from typing import Dict, Sequence, Tuple, Union, Optional, Any
 
 import os
 import pkg_resources
-from typing import Tuple, Sequence, Dict, Union, Any
 
-from bag import float_to_si_string
-from bag.design import Module
-
-
-yaml_file = pkg_resources.resource_filename(__name__, os.path.join('netlist_info', 'dut_wrapper_dm.yaml'))
+from bag.math import float_to_si_string
+from bag.util.cache import Param
+from bag.design.module import Module
+from bag.design.database import ModuleDB
 
 
 # noinspection PyPep8Naming
 class bag_testbenches_ec__dut_wrapper_dm(Module):
-    """A class that wraps a differential DUT to single-ended.
+    """Module for library bag_testbenches_ec cell dut_wrapper_dm.
+
+    Fill in high level description here.
     """
 
-    def __init__(self, bag_config, parent=None, prj=None, **kwargs):
-        Module.__init__(self, bag_config, yaml_file, parent=parent, prj=prj, **kwargs)
+    yaml_file = pkg_resources.resource_filename(__name__,
+                                                os.path.join('netlist_info',
+                                                             'dut_wrapper_dm.yaml'))
+
+    def __init__(self, database: ModuleDB, params: Param, **kwargs: Any) -> None:
+        Module.__init__(self, self.yaml_file, database, params, **kwargs)
 
     @classmethod
-    def get_params_info(cls):
-        # type: () -> Dict[str, str]
+    def get_params_info(cls) -> Dict[str, str]:
         return dict(
             dut_lib='DUT library name.',
             dut_cell='DUT cell name.',
@@ -60,23 +38,19 @@ class bag_testbenches_ec__dut_wrapper_dm(Module):
         )
 
     @classmethod
-    def get_default_param_values(cls):
-        # type: () -> Dict[str, Any]
+    def get_default_param_values(cls) -> Dict[str, Any]:
         return dict(
             cap_list=None,
             vcvs_list=None,
         )
 
-    def design(self,  # type: bag_testbenches_ec__dut_wrapper_dm
-               dut_lib='',  # type: str
-               dut_cell='',  # type: str
-               balun_list=None,  # type: Sequence[Tuple[str, str, str, str]]
-               cap_list=None,  # type: Sequence[Tuple[str, str, Union[float, str]]]
-               pin_list=None,  # type: Sequence[Tuple[str, str]]
-               dut_conns=None,  # type: Dict[str, str]
-               vcvs_list=None,  # type: Sequence[Tuple[str, str, str, str, Dict[str, Any]]]
-               ):
-        # type: (...) -> None
+    def design(self,  dut_lib: str, dut_cell: str,
+               balun_list: Sequence[Tuple[str, str, str, str]],
+               cap_list: Optional[Sequence[Tuple[str, str, Union[float, str]]]],
+               pin_list: Sequence[Tuple[str, str]],
+               dut_conns: Dict[str, str],
+               vcvs_list: Sequence[Tuple[str, str, str, str, Dict[str, Any]]],
+               ) -> None:
         """Design this wrapper schematic.
 
         This cell converts a variable number of differential pins to single-ended pins or
@@ -143,11 +117,11 @@ class bag_testbenches_ec__dut_wrapper_dm(Module):
         num_inst = len(balun_list)
         name_list = ['%s%d' % (inst_name, idx) for idx in range(num_inst)]
         self.array_instance(inst_name, name_list)
-        for idx, (diff, comm, pos, neg) in enumerate(balun_list):
-            self.reconnect_instance_terminal(inst_name, 'd', diff, index=idx)
-            self.reconnect_instance_terminal(inst_name, 'c', comm, index=idx)
-            self.reconnect_instance_terminal(inst_name, 'p', pos, index=idx)
-            self.reconnect_instance_terminal(inst_name, 'n', neg, index=idx)
+        for iname, (diff, comm, pos, neg) in zip(name_list, balun_list):
+            self.reconnect_instance_terminal(iname, 'd', diff)
+            self.reconnect_instance_terminal(iname, 'c', comm)
+            self.reconnect_instance_terminal(iname, 'p', pos)
+            self.reconnect_instance_terminal(iname, 'n', neg)
 
         # configure load capacitors
         inst_name = 'CLOAD'
@@ -155,16 +129,16 @@ class bag_testbenches_ec__dut_wrapper_dm(Module):
             num_inst = len(cap_list)
             name_list = ['%s%d' % (inst_name, idx) for idx in range(num_inst)]
             self.array_instance(inst_name, name_list)
-            for idx, (pos, neg, val) in enumerate(cap_list):
-                self.reconnect_instance_terminal(inst_name, 'PLUS', pos, index=idx)
-                self.reconnect_instance_terminal(inst_name, 'MINUS', neg, index=idx)
+            for iname, (pos, neg, val) in zip(name_list, cap_list):
+                self.reconnect_instance_terminal(iname, 'PLUS', pos)
+                self.reconnect_instance_terminal(iname, 'MINUS', neg)
                 if isinstance(val, str):
                     pass
                 elif isinstance(val, float) or isinstance(val, int):
                     val = float_to_si_string(val)
                 else:
                     raise ValueError('Unknown schematic instance parameter: %s' % val)
-                self.instances[inst_name][idx].parameters['c'] = val
+                self.instances[iname].set_param('c', val)
         else:
             self.delete_instance(inst_name)
 
@@ -174,11 +148,11 @@ class bag_testbenches_ec__dut_wrapper_dm(Module):
             num_inst = len(vcvs_list)
             name_list = ['%s%d' % (inst_name, idx) for idx in range(num_inst)]
             self.array_instance(inst_name, name_list)
-            for idx, (pos, neg, cpos, cneg, params) in enumerate(vcvs_list):
-                self.reconnect_instance_terminal(inst_name, 'PLUS', pos, index=idx)
-                self.reconnect_instance_terminal(inst_name, 'MINUS', neg, index=idx)
-                self.reconnect_instance_terminal(inst_name, 'NC+', cpos, index=idx)
-                self.reconnect_instance_terminal(inst_name, 'NC-', cneg, index=idx)
+            for iname, (pos, neg, cpos, cneg, params) in zip(name_list, vcvs_list):
+                self.reconnect_instance_terminal(iname, 'PLUS', pos)
+                self.reconnect_instance_terminal(iname, 'MINUS', neg)
+                self.reconnect_instance_terminal(iname, 'NC+', cpos)
+                self.reconnect_instance_terminal(iname, 'NC-', cneg)
                 for key, val in params.items():
                     if isinstance(val, str):
                         pass
@@ -186,6 +160,6 @@ class bag_testbenches_ec__dut_wrapper_dm(Module):
                         val = float_to_si_string(val)
                     else:
                         raise ValueError('Unknown schematic instance parameter: %s' % val)
-                    self.instances[inst_name][idx].parameters[key] = val
+                    self.instances[iname].set_param(key, val)
         else:
             self.delete_instance(inst_name)

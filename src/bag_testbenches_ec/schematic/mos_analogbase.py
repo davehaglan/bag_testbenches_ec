@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 
-from typing import Union, List, Tuple, Any, Dict
+from typing import Dict, Union, List, Tuple, Any
 
 import os
 import pkg_resources
 
-from bag.design import Module
-
-
-yaml_file = pkg_resources.resource_filename(__name__, os.path.join('netlist_info', 'mos_analogbase.yaml'))
+from bag.util.cache import Param
+from bag.design.module import Module
+from bag.design.database import ModuleDB
 
 
 # noinspection PyPep8Naming
 class bag_testbenches_ec__mos_analogbase(Module):
-    """A single transistor schematic generator.
+    """Module for library bag_testbenches_ec cell mos_analogbase.
 
-    This class is used primarily for transistor characterization purposes.
+    Fill in high level description here.
     """
 
-    def __init__(self, bag_config, parent=None, prj=None, **kwargs):
-        Module.__init__(self, bag_config, yaml_file, parent=parent, prj=prj, **kwargs)
+    yaml_file = pkg_resources.resource_filename(__name__,
+                                                os.path.join('netlist_info',
+                                                             'mos_analogbase.yaml'))
+
+    def __init__(self, database: ModuleDB, params: Param, **kwargs: Any) -> None:
+        Module.__init__(self, self.yaml_file, database, params, **kwargs)
 
     @classmethod
-    def get_params_info(cls):
-        # type: () -> Dict[str, str]
+    def get_params_info(cls) -> Dict[str, str]:
         return dict(
             mos_type="Transistor type.  Either 'pch' or 'nch'.",
             w='Transistor width in meters or number of fins.',
@@ -35,24 +37,15 @@ class bag_testbenches_ec__mos_analogbase(Module):
         )
 
     @classmethod
-    def get_default_param_values(cls):
-        # type: () -> Dict[str, Any]
+    def get_default_param_values(cls) -> Dict[str, Any]:
         return dict(
             intent='standard',
             stack=1,
             dum_info=None,
         )
 
-    def design(self,  # type: Module
-               mos_type,  # type: str
-               w,  # type: Union[float, int]
-               lch,  # type: float
-               fg,  # type: int
-               intent,  # type: str
-               stack,  # type: int
-               dum_info,  # type: List[Tuple[Any]]
-               ):
-        # type: (...) -> None
+    def design(self, mos_type: str, w: Union[float, int], lch: float, fg: int, intent: str,
+               stack: int, dum_info: List[Tuple[Any]]) -> None:
         """Design a single transistor for characterization purposes.
 
         Parameters
@@ -72,33 +65,7 @@ class bag_testbenches_ec__mos_analogbase(Module):
         dum_info : List[Tuple[Any]]
             the dummy information data structure.
         """
-        if fg == 1:
-            raise ValueError('Cannot make 1 finger transistor.')
-        inst_name = 'XM'
-        # select the correct transistor type
-        if mos_type == 'pch':
-            self.replace_instance_master(inst_name, 'BAG_prim', 'pmos4_standard')
-
-        if stack > 1:
-            # array instances
-            name_list = []
-            term_list = []
-            # add stack transistors
-            for idx in range(stack):
-                name_list.append('%s%d<%d:0>' % (inst_name, idx, fg - 1))
-                cur_term = {}
-                if idx != stack - 1:
-                    cur_term['S'] = 'mid%d<%d:0>' % (idx, fg - 1)
-                if idx != 0:
-                    cur_term['D'] = 'mid%d<%d:0>' % (idx - 1, fg - 1)
-                term_list.append(cur_term)
-
-            # design transistors
-            self.array_instance(inst_name, name_list, term_list=term_list)
-            for idx in range(stack):
-                self.instances[inst_name][idx].design(w=w, l=lch, nf=1, intent=intent)
-        else:
-            self.instances[inst_name].design(w=w, l=lch, nf=fg, intent=intent)
-
+        self.design_transistor('XM', w, lch, fg, intent, 'mid', d='d', g='g', s='s', b='b',
+                               stack=stack)
         # handle dummy transistors
         self.design_dummy_transistors(dum_info, 'XD', 'b', 'b')

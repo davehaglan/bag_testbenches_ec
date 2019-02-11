@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 
-from typing import Dict, Any, Optional, List
+from typing import Dict, List, Optional, Any
 
 import os
 import pkg_resources
 
-from bag.design import Module
-
-
-yaml_file = pkg_resources.resource_filename(__name__, os.path.join('netlist_info', 'mos_tb_noise.yaml'))
+from bag.util.cache import Param
+from bag.design.module import Module
+from bag.design.database import ModuleDB
 
 
 # noinspection PyPep8Naming
 class bag_testbenches_ec__mos_tb_noise(Module):
-    """Transistor noise characterization testbench.
+    """Module for library bag_testbenches_ec cell mos_tb_noise.
 
-    This testbench is used to characterize the transistor noise.
+    Fill in high level description here.
     """
 
-    def __init__(self, bag_config, parent=None, prj=None, **kwargs):
-        Module.__init__(self, bag_config, yaml_file, parent=parent, prj=prj, **kwargs)
+    yaml_file = pkg_resources.resource_filename(__name__,
+                                                os.path.join('netlist_info',
+                                                             'mos_tb_noise.yaml'))
+
+    def __init__(self, database: ModuleDB, params: Param, **kwargs: Any) -> None:
+        Module.__init__(self, self.yaml_file, database, params, **kwargs)
 
     @classmethod
-    def get_params_info(cls):
-        # type: () -> Dict[str, str]
+    def get_params_info(cls) -> Dict[str, str]:
         return dict(
             dut_lib="Transistor DUT library name.",
             dut_cell='Transistor DUT cell name.',
@@ -33,22 +35,16 @@ class bag_testbenches_ec__mos_tb_noise(Module):
         )
 
     @classmethod
-    def get_default_param_values(cls):
-        # type: () -> Dict[str, Any]
+    def get_default_param_values(cls) -> Dict[str, Any]:
         return dict(
             vbias_dict=None,
             ibias_dict=None,
             dut_conns=None,
         )
 
-    def design(self,  # type: Module
-               dut_lib,  # type: str
-               dut_cell,  # type: str
-               vbias_dict,  # type: Optional[Dict[str, List[str]]]]
-               ibias_dict,  # type: Optional[Dict[str, List[str]]]]
-               dut_conns,  # type: Optional[Dict[str, str]]
-               ):
-        # type: (...) -> None
+    def design(self, dut_lib: str, dut_cell: str, vbias_dict: Optional[Dict[str, List[str]]],
+               ibias_dict: Optional[Dict[str, List[str]]],
+               dut_conns: Optional[Dict[str, str]]) -> None:
         """Design this testbench.
         """
         if vbias_dict is None:

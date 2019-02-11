@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from typing import Dict
+from typing import Dict, Any
 
 import os
 import pkg_resources
 
-from bag.design import Module
-
-
-yaml_file = pkg_resources.resource_filename(__name__, os.path.join('netlist_info', 'amp_tb_tran.yaml'))
+from bag.util.cache import Param
+from bag.design.module import Module
+from bag.design.database import ModuleDB
 
 
 # noinspection PyPep8Naming
@@ -18,12 +17,15 @@ class bag_testbenches_ec__amp_tb_tran(Module):
     Fill in high level description here.
     """
 
-    def __init__(self, bag_config, parent=None, prj=None, **kwargs):
-        Module.__init__(self, bag_config, yaml_file, parent=parent, prj=prj, **kwargs)
+    yaml_file = pkg_resources.resource_filename(__name__,
+                                                os.path.join('netlist_info',
+                                                             'amp_tb_tran.yaml'))
+
+    def __init__(self, database: ModuleDB, params: Param, **kwargs: Any) -> None:
+        Module.__init__(self, self.yaml_file, database, params, **kwargs)
 
     @classmethod
-    def get_params_info(cls):
-        # type: () -> Dict[str, str]
+    def get_params_info(cls) -> Dict[str, str]:
         """Returns a dictionary from parameter names to descriptions.
 
         Returns
