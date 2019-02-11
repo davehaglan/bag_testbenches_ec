@@ -1,44 +1,356 @@
 lib_name: bag_testbenches_ec
 cell_name: bias_sources
-pins: [ "VSS", "VDD", "ibias", "vbias" ]
+view_name: schematic
+bbox:
+  - -424
+  - 96
+  - -126
+  - 278
+terminals:
+  VDD:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: iopin
+          view_name: symbolr
+          xform:
+            - -360
+            - 260
+            - 0
+          bbox:
+            - -421
+            - 234
+            - -350
+            - 270
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -385
+            - 260
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 1
+    ttype: 2
+  VSS:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: iopin
+          view_name: symbolr
+          xform:
+            - -360
+            - 240
+            - 0
+          bbox:
+            - -421
+            - 214
+            - -350
+            - 250
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -385
+            - 240
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 2
+    ttype: 2
+  ibias:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: iopin
+          view_name: symbolr
+          xform:
+            - -360
+            - 160
+            - 0
+          bbox:
+            - -421
+            - 134
+            - -350
+            - 170
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -385
+            - 160
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 0
+    ttype: 2
+  vbias:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: iopin
+          view_name: symbolr
+          xform:
+            - -360
+            - 180
+            - 0
+          bbox:
+            - -421
+            - 154
+            - -350
+            - 190
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -385
+            - 180
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 0
+    ttype: 2
+shapes:
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -220
+          - 100
+        -
+          - -180
+          - 100
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: ibias
+      points:
+        -
+          - -220
+          - 160
+        -
+          - -180
+          - 160
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -220
+          - 200
+        -
+          - -180
+          - 200
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vbias
+      points:
+        -
+          - -220
+          - 260
+        -
+          - -180
+          - 260
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vbias
+      origin:
+        - -200
+        - 267
+      alignment: 5
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vbias
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -200
+        - 207
+      alignment: 5
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: ibias
+      origin:
+        - -200
+        - 167
+      alignment: 5
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: ibias
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -200
+        - 107
+      alignment: 5
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
 instances:
-  V0:
-    lib_name: analogLib
-    cell_name: vdc
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "vbias"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
   I0:
     lib_name: analogLib
     cell_name: idc
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "ibias"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-  PIN3:
-    lib_name: basic
-    cell_name: iopin
-    instpins: {}
-  PIN2:
-    lib_name: basic
-    cell_name: iopin
-    instpins: {}
-  PIN1:
-    lib_name: basic
-    cell_name: iopin
-    instpins: {}
-  PIN0:
-    lib_name: basic
-    cell_name: iopin
-    instpins: {}
+    view_name: symbol
+    xform:
+      - -220
+      - 160
+      - 0
+    bbox:
+      - -337
+      - 96
+      - -126
+      - 164
+    connections:
+      MINUS: VSS
+      PLUS: ibias
+    params:
+      idc:
+        - 3
+        - 0
+    is_primitive: true
+  V0:
+    lib_name: analogLib
+    cell_name: vdc
+    view_name: symbol
+    xform:
+      - -220
+      - 260
+      - 0
+    bbox:
+      - -342
+      - 196
+      - -126
+      - 264
+    connections:
+      MINUS: VSS
+      PLUS: vbias
+    params:
+      vdc:
+        - 3
+        - 0
+    is_primitive: true
+props:
+  connectivityLastUpdated:
+    - 0
+    - 392
+  instance#:
+    - 0
+    - 1
+  lastSchematicExtraction:
+    - 4
+    - time_val: 1502314846
+  net#:
+    - 0
+    - 0
+  pin#:
+    - 0
+    - 4
+  schGeometryLastUpdated:
+    - 0
+    - 392
+  schGeometryVersion:
+    - 3
+    - sch.ds.gm.1.4
+  schXtrVersion:
+    - 3
+    - sch.10.0
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 392
+  _dbvCvTimeStamp:
+    - 0
+    - 392
+  cdbRevision:
+    - 0
+    - 227612

@@ -1,0 +1,255 @@
+lib_name: bag_testbenches_ec
+cell_name: bias_sources
+view_name: symbol
+bbox:
+  - 0
+  - 0
+  - 308
+  - 144
+terminals:
+  VDD:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 76
+          - 136
+          - 84
+          - 144
+    stype: 1
+    ttype: 2
+  VSS:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 96
+          - 136
+          - 104
+          - 144
+    stype: 2
+    ttype: 2
+  ibias:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 216
+          - 36
+          - 224
+          - 44
+    stype: 0
+    ttype: 2
+  vbias:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 216
+          - 56
+          - 224
+          - 64
+    stype: 0
+    ttype: 2
+shapes:
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 220
+          - 40
+        -
+          - 180
+          - 40
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 174
+        - 40
+      alignment: 7
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: ibias
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 220
+          - 60
+        -
+          - 180
+          - 60
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 174
+        - 60
+      alignment: 7
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vbias
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 80
+          - 140
+        -
+          - 80
+          - 100
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 80
+        - 94
+      alignment: 1
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VDD
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 100
+          - 140
+        -
+          - 100
+          - 100
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 100
+        - 94
+      alignment: 1
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 0
+    - layer: 236
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 0
+        - 0
+        - 220
+        - 140
+  -
+    - 8
+    - layer: 236
+      purpose: 237
+      net: ""
+      origin:
+        - 180
+        - 100
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 8
+    - layer: 231
+      purpose: 237
+      net: ""
+      origin:
+        - 90
+        - 50
+      alignment: 4
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 0
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 0
+        - 0
+        - 180
+        - 100
+instances:
+  {}
+props:
+  interfaceLastChanged:
+    - 4
+    - time_val: 1502314815
+  partName:
+    - 3
+    - bias_sources
+  pin#:
+    - 0
+    - 4
+  portOrder:
+    - 5
+    - name: ILList
+      bin_val: ("VDD" "VSS" "ibias" "vbias")
+  vendorName:
+    - 3
+    - ""
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 103
+  _dbvCvTimeStamp:
+    - 0
+    - 103
+  cdbRevision:
+    - 0
+    - 227612

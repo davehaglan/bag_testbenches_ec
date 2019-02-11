@@ -1,0 +1,296 @@
+lib_name: bag_testbenches_ec
+cell_name: amp_model
+view_name: symbol
+bbox:
+  - -4
+  - -124
+  - 288
+  - 84
+terminals:
+  VDD:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 96
+          - 76
+          - 104
+          - 84
+    stype: 1
+    ttype: 2
+  VSS:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 96
+          - -124
+          - 104
+          - -116
+    stype: 2
+    ttype: 2
+  ibias:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - -4
+          - -44
+          - 4
+          - -36
+    stype: 0
+    ttype: 0
+  vin:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - -4
+          - -24
+          - 4
+          - -16
+    stype: 0
+    ttype: 0
+  vout:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 196
+          - -24
+          - 204
+          - -16
+    stype: 0
+    ttype: 1
+shapes:
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 0
+          - -40
+        -
+          - 40
+          - -40
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 46
+        - -40
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: ibias
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 0
+          - -20
+        -
+          - 40
+          - -20
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 46
+        - -20
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vin
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 200
+          - -20
+        -
+          - 160
+          - -20
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 154
+        - -20
+      alignment: 7
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vout
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 100
+          - 80
+        -
+          - 100
+          - 40
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 100
+        - 34
+      alignment: 1
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VDD
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 100
+          - -120
+        -
+          - 100
+          - -80
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 100
+        - -74
+      alignment: 7
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 0
+    - layer: 236
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 0
+        - -120
+        - 200
+        - 80
+  -
+    - 8
+    - layer: 236
+      purpose: 237
+      net: ""
+      origin:
+        - 160
+        - 50
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 8
+    - layer: 231
+      purpose: 237
+      net: ""
+      origin:
+        - 100
+        - -5
+      alignment: 4
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 0
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 40
+        - -80
+        - 160
+        - 40
+instances:
+  {}
+props:
+  interfaceLastChanged:
+    - 4
+    - time_val: 1502742791
+  partName:
+    - 3
+    - amp_model
+  pin#:
+    - 0
+    - 5
+  portOrder:
+    - 5
+    - name: ILList
+      bin_val: ("vout" "VDD" "VSS" "ibias" "vin")
+  vendorName:
+    - 3
+    - ""
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 124
+  _dbvCvTimeStamp:
+    - 0
+    - 124
+  cdbRevision:
+    - 0
+    - 227612

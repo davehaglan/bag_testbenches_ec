@@ -1,24 +1,240 @@
 lib_name: bag_testbenches_ec
 cell_name: amp_model
-pins: [ "VDD", "VSS", "vin", "vout", "ibias" ]
+view_name: schematic
+bbox:
+  - -405
+  - 14
+  - -223
+  - 130
+terminals:
+  VDD:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: iopin
+          view_name: symbolr
+          xform:
+            - -340
+            - 120
+            - 0
+          bbox:
+            - -401
+            - 94
+            - -330
+            - 130
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -365
+            - 120
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 1
+    ttype: 2
+  VSS:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: iopin
+          view_name: symbolr
+          xform:
+            - -340
+            - 100
+            - 0
+          bbox:
+            - -401
+            - 74
+            - -330
+            - 110
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -365
+            - 100
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 2
+    ttype: 2
+  ibias:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: ipin
+          view_name: symbol
+          xform:
+            - -340
+            - 40
+            - 0
+          bbox:
+            - -397
+            - 14
+            - -340
+            - 50
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -370
+            - 40
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 0
+    ttype: 0
+  vin:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: ipin
+          view_name: symbol
+          xform:
+            - -340
+            - 60
+            - 0
+          bbox:
+            - -397
+            - 34
+            - -340
+            - 70
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -370
+            - 60
+          alignment: 7
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 0
+    ttype: 0
+  vout:
+    obj:
+      - 1
+      - inst:
+          lib_name: basic
+          cell_name: opin
+          view_name: symbol
+          xform:
+            - -280
+            - 60
+            - 0
+          bbox:
+            - -280
+            - 34
+            - -223
+            - 70
+          connections:
+            {}
+          params:
+            {}
+          is_primitive: true
+        attr:
+          layer: 229
+          purpose: 237
+          net: ""
+          origin:
+            - -255
+            - 60
+          alignment: 1
+          orient: 0
+          font: 5
+          height: 10
+          overbar: false
+          visible: true
+          drafting: true
+          attr_type: 0
+          format: 1
+    stype: 0
+    ttype: 1
+shapes:
+  []
 instances:
-  PIN1:
-    lib_name: basic
-    cell_name: iopin
-    instpins: {}
-  PIN0:
-    lib_name: basic
-    cell_name: iopin
-    instpins: {}
-  PIN4:
-    lib_name: basic
-    cell_name: ipin
-    instpins: {}
-  PIN2:
-    lib_name: basic
-    cell_name: ipin
-    instpins: {}
-  PIN3:
-    lib_name: basic
-    cell_name: opin
-    instpins: {}
+  {}
+props:
+  connectivityLastUpdated:
+    - 0
+    - 299
+  lastSchematicExtraction:
+    - 4
+    - time_val: 1502742837
+  net#:
+    - 0
+    - 0
+  pin#:
+    - 0
+    - 5
+  schGeometryLastUpdated:
+    - 0
+    - 299
+  schGeometryVersion:
+    - 3
+    - sch.ds.gm.1.4
+  schXtrVersion:
+    - 3
+    - sch.10.0
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 299
+  _dbvCvTimeStamp:
+    - 0
+    - 299
+  cdbRevision:
+    - 0
+    - 227612

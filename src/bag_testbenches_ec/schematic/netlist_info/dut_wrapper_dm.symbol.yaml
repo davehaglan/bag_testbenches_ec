@@ -1,0 +1,337 @@
+lib_name: bag_testbenches_ec
+cell_name: dut_wrapper_dm
+view_name: symbol
+bbox:
+  - -4
+  - -4
+  - 328
+  - 184
+terminals:
+  VDD:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 116
+          - 176
+          - 124
+          - 184
+    stype: 1
+    ttype: 2
+  VSS:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 116
+          - -4
+          - 124
+          - 4
+    stype: 2
+    ttype: 2
+  inac:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - -4
+          - 96
+          - 4
+          - 104
+    stype: 0
+    ttype: 0
+  indc:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - -4
+          - 76
+          - 4
+          - 84
+    stype: 0
+    ttype: 0
+  outac:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 236
+          - 96
+          - 244
+          - 104
+    stype: 0
+    ttype: 1
+  outdc:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 236
+          - 76
+          - 244
+          - 84
+    stype: 0
+    ttype: 1
+shapes:
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 0
+          - 80
+        -
+          - 40
+          - 80
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 46
+        - 80
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: indc
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 0
+          - 100
+        -
+          - 40
+          - 100
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 46
+        - 100
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: inac
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 240
+          - 80
+        -
+          - 200
+          - 80
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 194
+        - 80
+      alignment: 7
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: outdc
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 240
+          - 100
+        -
+          - 200
+          - 100
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 194
+        - 100
+      alignment: 7
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: outac
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 120
+          - 180
+        -
+          - 120
+          - 140
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 120
+        - 134
+      alignment: 1
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VDD
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 120
+          - 0
+        -
+          - 120
+          - 40
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 120
+        - 46
+      alignment: 7
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 0
+    - layer: 236
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 0
+        - 0
+        - 240
+        - 180
+  -
+    - 8
+    - layer: 236
+      purpose: 237
+      net: ""
+      origin:
+        - 200
+        - 160
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 8
+    - layer: 231
+      purpose: 237
+      net: ""
+      origin:
+        - 120
+        - 95
+      alignment: 4
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 0
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 40
+        - 40
+        - 200
+        - 140
+instances:
+  {}
+props:
+  interfaceLastChanged:
+    - 4
+    - time_val: 1508016296
+  partName:
+    - 3
+    - dut_wrapper_dm
+  pin#:
+    - 0
+    - 6
+  portOrder:
+    - 5
+    - name: ILList
+      bin_val: ("outac" "outdc" "VDD" "VSS" "inac" "indc")
+  vendorName:
+    - 3
+    - ""
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 191
+  _dbvCvTimeStamp:
+    - 0
+    - 191
+  cdbRevision:
+    - 0
+    - 227612

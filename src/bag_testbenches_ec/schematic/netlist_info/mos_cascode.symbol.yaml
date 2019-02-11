@@ -1,0 +1,299 @@
+lib_name: bag_testbenches_ec
+cell_name: mos_cascode
+view_name: symbol
+bbox:
+  - -4
+  - -84
+  - 318
+  - 74
+terminals:
+  b:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 226
+          - -4
+          - 234
+          - 4
+    stype: 0
+    ttype: 2
+  c:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - -4
+          - 16
+          - 4
+          - 24
+    stype: 0
+    ttype: 2
+  d:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 116
+          - 66
+          - 124
+          - 74
+    stype: 0
+    ttype: 2
+  g:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - -4
+          - -4
+          - 4
+          - 4
+    stype: 0
+    ttype: 2
+  s:
+    obj:
+      - 0
+      - layer: 229
+        purpose: 4294967295
+        net: ""
+        bbox:
+          - 116
+          - -84
+          - 124
+          - -76
+    stype: 0
+    ttype: 2
+shapes:
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 0
+          - 0
+        -
+          - 40
+          - 0
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 46
+        - 0
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: g
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 230
+          - 0
+        -
+          - 190
+          - 0
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 184
+        - 0
+      alignment: 7
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: b
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 120
+          - 70
+        -
+          - 120
+          - 30
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 120
+        - 24
+      alignment: 1
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: d
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 120
+          - -80
+        -
+          - 120
+          - -40
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 120
+        - -34
+      alignment: 7
+      orient: 5
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: s
+  -
+    - 0
+    - layer: 236
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 0
+        - -80
+        - 230
+        - 70
+  -
+    - 8
+    - layer: 236
+      purpose: 237
+      net: ""
+      origin:
+        - 190
+        - 30
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 8
+    - layer: 231
+      purpose: 237
+      net: ""
+      origin:
+        - 115
+        - -5
+      alignment: 4
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      evaluator: cdsNLPEvalText
+  -
+    - 0
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      bbox:
+        - 40
+        - -40
+        - 190
+        - 30
+  -
+    - 5
+    - layer: 231
+      purpose: 4294967295
+      net: ""
+      points:
+        -
+          - 0
+          - 20
+        -
+          - 40
+          - 20
+  -
+    - 7
+    - layer: 229
+      purpose: 237
+      net: ""
+      origin:
+        - 46
+        - 20
+      alignment: 1
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: c
+instances:
+  {}
+props:
+  instNamePrefix:
+    - 3
+    - X
+  interfaceLastChanged:
+    - 4
+    - time_val: 1517984506
+  partName:
+    - 3
+    - mos_cascode
+  pin#:
+    - 0
+    - 5
+  portOrder:
+    - 5
+    - name: ILList
+      bin_val: ("b" "c" "d" "g" "s")
+  vendorName:
+    - 3
+    - ""
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 101
+  _dbvCvTimeStamp:
+    - 0
+    - 101
+  cdbRevision:
+    - 0
+    - 227612

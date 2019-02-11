@@ -1,108 +1,667 @@
 lib_name: bag_testbenches_ec
 cell_name: amp_tb_ac_tran
-pins: [  ]
+view_name: schematic
+bbox:
+  - -542
+  - -163
+  - -6
+  - 600
+terminals:
+  {}
+shapes:
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -420
+          - 220
+        -
+          - -420
+          - 240
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -427
+        - 240
+      alignment: 5
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: gnd!
+      points:
+        -
+          - -420
+          - 140
+        -
+          - -420
+          - 160
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -300
+          - 0
+        -
+          - -300
+          - 20
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -307
+        - 10
+      alignment: 5
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: ibias
+      points:
+        -
+          - -300
+          - 80
+        -
+          - -300
+          - 100
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: ibias
+      origin:
+        - -307
+        - 90
+      alignment: 5
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: ibias
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -300
+          - 140
+        -
+          - -300
+          - 160
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -307
+        - 156
+      alignment: 8
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VDD
+      points:
+        -
+          - -300
+          - 220
+        -
+          - -300
+          - 240
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VDD
+      origin:
+        - -307
+        - 224
+      alignment: 2
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VDD
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vindc
+      points:
+        -
+          - -200
+          - -140
+        -
+          - -200
+          - -120
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vindc
+      origin:
+        - -207
+        - -124
+      alignment: 8
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vindc
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vin
+      points:
+        -
+          - -200
+          - -60
+        -
+          - -200
+          - -40
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vin
+      origin:
+        - -207
+        - -56
+      alignment: 2
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vin
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -300
+          - -140
+        -
+          - -300
+          - -120
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -307
+        - -124
+      alignment: 8
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vindc
+      points:
+        -
+          - -300
+          - -60
+        -
+          - -300
+          - -40
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vindc
+      origin:
+        - -307
+        - -56
+      alignment: 2
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vindc
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: ibias
+      points:
+        -
+          - -340
+          - 440
+        -
+          - -300
+          - 440
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: ibias
+      origin:
+        - -304
+        - 447
+      alignment: 8
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: ibias
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vin
+      points:
+        -
+          - -340
+          - 460
+        -
+          - -300
+          - 460
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vin
+      origin:
+        - -304
+        - 467
+      alignment: 8
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vin
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VDD
+      points:
+        -
+          - -200
+          - 560
+        -
+          - -200
+          - 600
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VDD
+      origin:
+        - -207
+        - 564
+      alignment: 2
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VDD
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -200
+          - 320
+        -
+          - -200
+          - 360
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -207
+        - 356
+      alignment: 8
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vout
+      points:
+        -
+          - -100
+          - 460
+        -
+          - -60
+          - 460
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vout
+      origin:
+        - -96
+        - 467
+      alignment: 2
+      orient: 0
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vout
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: VSS
+      points:
+        -
+          - -100
+          - -140
+        -
+          - -100
+          - -120
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: VSS
+      origin:
+        - -107
+        - -124
+      alignment: 8
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: VSS
+  -
+    - 5
+    - layer: 228
+      purpose: 4294967295
+      net: vout
+      points:
+        -
+          - -100
+          - -60
+        -
+          - -100
+          - -40
+  -
+    - 7
+    - layer: 228
+      purpose: 237
+      net: vout
+      origin:
+        - -107
+        - -56
+      alignment: 2
+      orient: 6
+      font: 5
+      height: 10
+      overbar: false
+      visible: true
+      drafting: true
+      text: vout
 instances:
-  IBIAS:
-    lib_name: analogLib
-    cell_name: idc
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "ibias"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-  I1:
-    lib_name: analogLib
-    cell_name: gnd
-    instpins:
-      gnd!:
-        direction: inputOutput
-        net_name: "gnd!"
-        num_bits: 1
-  VINDC:
-    lib_name: analogLib
-    cell_name: vdc
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "vindc"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-  VGND:
-    lib_name: analogLib
-    cell_name: vdc
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "gnd!"
-        num_bits: 1
-  VSUP:
-    lib_name: analogLib
-    cell_name: vdc
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "VDD"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-  XDUT:
-    lib_name: bag_testbenches_ec
-    cell_name: amp_model
-    instpins:
-      VSS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-      VDD:
-        direction: inputOutput
-        net_name: "VDD"
-        num_bits: 1
-      vout:
-        direction: output
-        net_name: "vout"
-        num_bits: 1
-      vin:
-        direction: input
-        net_name: "vin"
-        num_bits: 1
-      ibias:
-        direction: input
-        net_name: "ibias"
-        num_bits: 1
-  VIN:
-    lib_name: analogLib
-    cell_name: vpwlf
-    instpins:
-      PLUS:
-        direction: inputOutput
-        net_name: "vin"
-        num_bits: 1
-      MINUS:
-        direction: inputOutput
-        net_name: "vindc"
-        num_bits: 1
   CLOAD:
     lib_name: analogLib
     cell_name: cap
-    instpins:
-      MINUS:
-        direction: inputOutput
-        net_name: "VSS"
-        num_bits: 1
-      PLUS:
-        direction: inputOutput
-        net_name: "vout"
-        num_bits: 1
+    view_name: symbol
+    xform:
+      - -100
+      - -60
+      - 0
+    bbox:
+      - -222
+      - -124
+      - -6
+      - -56
+    connections:
+      MINUS: VSS
+      PLUS: vout
+    params:
+      c:
+        - 3
+        - cload
+    is_primitive: true
+  I1:
+    lib_name: analogLib
+    cell_name: gnd
+    view_name: symbol
+    xform:
+      - -420
+      - 140
+      - 0
+    bbox:
+      - -430
+      - 100
+      - -346
+      - 144
+    connections:
+      gnd!: gnd!
+    params:
+      {}
+    is_primitive: true
+  IBIAS:
+    lib_name: analogLib
+    cell_name: idc
+    view_name: symbol
+    xform:
+      - -300
+      - 80
+      - 0
+    bbox:
+      - -417
+      - 16
+      - -206
+      - 84
+    connections:
+      MINUS: VSS
+      PLUS: ibias
+    params:
+      idc:
+        - 3
+        - ibias
+    is_primitive: true
+  VGND:
+    lib_name: analogLib
+    cell_name: vdc
+    view_name: symbol
+    xform:
+      - -420
+      - 220
+      - 0
+    bbox:
+      - -542
+      - 156
+      - -326
+      - 224
+    connections:
+      MINUS: gnd!
+      PLUS: VSS
+    params:
+      vdc:
+        - 3
+        - 0
+    is_primitive: true
+  VIN:
+    lib_name: analogLib
+    cell_name: vpwlf
+    view_name: symbol
+    xform:
+      - -200
+      - -60
+      - 0
+    bbox:
+      - -317
+      - -124
+      - -106
+      - -56
+    connections:
+      MINUS: vindc
+      PLUS: vin
+    params:
+      acm:
+        - 3
+        - vinac
+    is_primitive: true
+  VINDC:
+    lib_name: analogLib
+    cell_name: vdc
+    view_name: symbol
+    xform:
+      - -300
+      - -60
+      - 0
+    bbox:
+      - -422
+      - -124
+      - -206
+      - -56
+    connections:
+      MINUS: VSS
+      PLUS: vindc
+    params:
+      vdc:
+        - 3
+        - vindc
+    is_primitive: true
+  VSUP:
+    lib_name: analogLib
+    cell_name: vdc
+    view_name: symbol
+    xform:
+      - -300
+      - 220
+      - 0
+    bbox:
+      - -422
+      - 156
+      - -206
+      - 224
+    connections:
+      MINUS: VSS
+      PLUS: VDD
+    params:
+      vdc:
+        - 3
+        - vdd
+    is_primitive: true
+  XDUT:
+    lib_name: bag_testbenches_ec
+    cell_name: amp_model
+    view_name: symbol
+    xform:
+      - -300
+      - 480
+      - 0
+    bbox:
+      - -304
+      - 356
+      - -12
+      - 564
+    connections:
+      VDD: VDD
+      VSS: VSS
+      ibias: ibias
+      vin: vin
+      vout: vout
+    params:
+      {}
+    is_primitive: false
+props:
+  connectivityLastUpdated:
+    - 0
+    - 1285
+  lastSchematicExtraction:
+    - 4
+    - time_val: 1502751699
+  net#:
+    - 0
+    - 1
+  schGeometryLastUpdated:
+    - 0
+    - 1285
+  schGeometryVersion:
+    - 3
+    - sch.ds.gm.1.4
+  schXtrVersion:
+    - 3
+    - sch.10.0
+app_defs:
+  _dbLastSavedCounter:
+    - 0
+    - 1285
+  _dbvCvTimeStamp:
+    - 0
+    - 1285
+  cdbRevision:
+    - 0
+    - 227612
