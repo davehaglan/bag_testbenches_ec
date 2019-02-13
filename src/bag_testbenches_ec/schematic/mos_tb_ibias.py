@@ -58,6 +58,6 @@ class bag_testbenches_ec__mos_tb_ibias(Module):
         self.design_dc_bias_sources(vbias_dict, ibias_dict, 'VBIAS', 'IBIAS', define_vdd=False)
 
         # setup DUT
-        self.replace_instance_master('XDUT', dut_lib, dut_cell, static=True)
+        self.replace_instance_master('XDUT', dut_lib, dut_cell, static=True, keep_connections=True)
         for term_name, net_name in dut_conns.items():
             self.reconnect_instance_terminal('XDUT', term_name, net_name)
