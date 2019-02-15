@@ -1,0 +1,6 @@
+params:
+  mos_type: nch
+  lch: 10.0e-9
+  w: 4
+  fg: 20
+  intent: lvt
