@@ -1,6 +1,6 @@
 PYTEST:
   lib_name: PYTEST
-  cell_name: mos_analogbase_00
+  cell_name: mos_analogbase
   view_name: schematic
   bbox:
     - -401
